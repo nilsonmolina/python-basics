@@ -33,3 +33,23 @@ print("PI is approximately {0:12.50}".format(22 / 7))
 
 # Note that if you do not put a value in the brackets, python will assume order
 print("This {} a {}!".format("is", "test", "n/a"))
+
+
+# -------- PYTHON STRING LENGTH HANDLING ---------
+
+# IDE does not like lines over 120 character
+longString = "This is a very long string, created to show you the problem the IDE has with a long string, but it still runs."
+print(longString)
+
+# Solution 1:
+splitString = "This is a very long string, " \
+             "created to show you the problem the IDE has with a long string, " \
+             "but it still runs."
+print(splitString)
+
+# Solution 2:
+parenthesisString = ("This is a very long string, "
+                     "created to show you the problem the IDE has with a long string, "
+                     "but it still runs.")
+print(parenthesisString)
+
