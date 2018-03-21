@@ -1,6 +1,6 @@
 """ PART 1 OF RUSH_NUMPY """
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as pyplot
 
 print("PART 1")
 print("---------------------")
@@ -16,7 +16,7 @@ print(ARR)
 print("3. Write a function that creates an incremental N-dimensional (nd) array of dimension (1,n) with values between 0 and 1. Use arr.shape to verify")
 def create_array(n=2):
     return np.linspace(0, 1, n).reshape(1, n)
-ARR = create_array(13)
+ARR = create_array(3)
 print(ARR)
 print(type(ARR))
 print(ARR.shape)
@@ -34,5 +34,8 @@ def create_matrix(m, n):
 
 ARR = create_matrix(3, 3)
 print(ARR)
-# plt.imshow(ARR)
+# pyplot.imshow(ARR)
 print("6. Multiply the resulting matrix from Q5 with the matrix of a picture of your choice. Plot the resulting matrix.")
+IMG = pyplot.imread('assets/img.png')
+print(IMG)
+print(IMG.shape)
