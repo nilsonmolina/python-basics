@@ -19,11 +19,10 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'Ch@llenge64'
 api = Api(app)
 
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
+# THIS IS NOW IN: run.py
+# @app.before_first_request
+# def create_tables():
+#     db.create_all()
 
 app.config['JWT_AUTH_URL_RULE'] = '/auth'
 jwt = JWT(app, authenticate, identity)
