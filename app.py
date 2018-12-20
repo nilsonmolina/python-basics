@@ -2,7 +2,9 @@
 # pylint: disable=C0111,C0103
 # - [C0111] is a warning when missing function docstrings.
 # - [C0103] WARNING: constant names not UPPER_CASE style.
+import os
 import datetime
+
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
@@ -14,7 +16,7 @@ from resources.store import Store, StoreList
 
 # --------- SERVER SETUP ---------
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'Ch@llenge64'
 api = Api(app)
