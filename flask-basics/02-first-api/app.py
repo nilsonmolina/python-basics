@@ -4,10 +4,10 @@
 from flask import Flask, jsonify, request, render_template
 
 # -------- SERVER SETUP --------
-app = Flask(__name__) # pylint: disable=invalid-name
+app = Flask(__name__)  # pylint: disable=invalid-name
 
 # -------- DATA --------
-stores = [ # pylint: disable=invalid-name
+stores = [  # pylint: disable=invalid-name
     {
         'name': 'My Wonderful Store',
         'items': [
@@ -17,10 +17,12 @@ stores = [ # pylint: disable=invalid-name
     }
 ]
 
+
 # -------- ROUTES --------
 @app.route('/')
 def home():
     return render_template('index.html')
+
 
 @app.route('/store', methods=['POST'])
 def create_store():
@@ -32,6 +34,7 @@ def create_store():
     stores.append(new_store)
     return jsonify(new_store)
 
+
 @app.route('/store/<string:name>')
 def get_store(name):
     for store in stores:
@@ -39,9 +42,11 @@ def get_store(name):
             return jsonify(store)
     return jsonify({'message': 'store not found'})
 
+
 @app.route('/store')
 def get_stores():
     return jsonify({'stores': stores})
+
 
 @app.route('/store/<string:name>/item', methods=['POST'])
 def create_item_in_store(name):
@@ -55,6 +60,7 @@ def create_item_in_store(name):
             store['items'].append(new_item)
             return jsonify(new_item)
     return jsonify({'message': 'store not found'})
+
 
 @app.route('/store/<string:name>/item')
 def get_items_in_store(name):
