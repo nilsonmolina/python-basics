@@ -18,7 +18,7 @@ from resources.store import Store, StoreList
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = 'Ch@llenge64'
+app.secret_key = 'my_secret'
 api = Api(app)
 
 # THIS IS NOW IN: run.py
